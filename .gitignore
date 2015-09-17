@@ -10,3 +10,49 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+public int keepAlive(int a) {
+
+        //método retorna se a célula continuará viva
+        int soma = 0;
+
+        for (int x = 0; x < vida.length; x++) {
+            // método determina a quantidade de vizinhos vivos  
+
+            if (vida[x] == 1) {
+
+                soma++;
+            }
+
+        }
+
+        if (a == 1) {
+            //regras para célula viva
+
+            if (soma > 3 || soma < 2) {
+                // verificação de superpopulação e subpopulação
+
+                return 0;
+
+            } else {
+                //"Uma célula viva, adjacente a duas ou três células vivas, permanece viva"
+
+                return 1;
+            }
+
+        } else {
+            //regras para célula morta
+
+            if (soma == 3) {
+                // se rodeada por 3 células vivas, nasce
+
+                return 1;
+            } else {
+                
+                return 0;
+            }
+
+            
+        }
+
+    }
